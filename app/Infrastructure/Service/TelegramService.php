@@ -32,6 +32,7 @@ class TelegramService
     {
         try {
             $response = $telegram->handle();
+
         } catch (TelegramException $e) {
             throw new Exception($e->getMessage());
         }
