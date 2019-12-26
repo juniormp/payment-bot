@@ -5,7 +5,7 @@ namespace App\Application\Command;
 
 use Longman\TelegramBot\Request;
 
-class Help
+class HelpCommand
 {
     private $request;
 

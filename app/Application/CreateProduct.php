@@ -4,22 +4,14 @@
 namespace App\Application;
 
 
+use App\Infrastructure\Service\CommandInterface;
 use Longman\TelegramBot\Request;
 
-class CreateProduct
+class CreateProduct implements CommandInterface
 {
-    private $telegramRequest;
-
-    public function __construct(Request $telegramRequest)
+    public function perform(array $data)
     {
-        $this->telegramRequest = $telegramRequest;
-    }
+        dd(5);
 
-    public function perform()
-    {
-        $this->telegramRequest::sendMessage([
-            'chat_id' => '462914579',
-            'text' => 'Qual o nome do seu produto?'
-        ]);
     }
 }
