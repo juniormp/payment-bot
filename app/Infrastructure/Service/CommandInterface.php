@@ -6,5 +6,5 @@ namespace App\Infrastructure\Service;
 
 interface CommandInterface
 {
-    public function perform(array $data);
+    public function perform();
 }

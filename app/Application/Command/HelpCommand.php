@@ -16,7 +16,7 @@ class HelpCommand
 
     public function perform()
     {
-        $message = "Olá, eu posso te ajudar em suas vendas e fidelizar clientes. " .
+        $message = "Oi! eu sou o Fred o Pug, vou te ajudar a impulsionar suas vendas e fidelizar novos clientes em nossa nova aventura. " .
             "Se você é novo por aqui [leia nosso manual](http://www.google.com/)." .
             "\nSempre que precisar de ajuda digite o comando /ajuda" .
             "\n\nComo eu posso te ajudar hoje?".
@@ -24,6 +24,11 @@ class HelpCommand
             "\n/criarproduto criar um produto.".
             "\n/venderproduto vender um produto".
             "\n/contato entre em contato";
+
+        Request::sendSticker([
+            'chat_id' => '462914579',
+            'sticker' => 'CAADAgAD5AEAAsoDBgsAAV18FimxHTEWBA'
+        ]);
 
         $this->request::sendMessage([
             'chat_id' => '462914579',

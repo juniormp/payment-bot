@@ -4,7 +4,9 @@
 namespace App\Infrastructure\Service;
 
 
-class CommandContext
+use Illuminate\Support\Facades\Log;
+
+class CommandContext implements CommandInterface
 {
     private $commandInterface;
 
@@ -13,8 +15,8 @@ class CommandContext
         $this->commandInterface = $commandInterface;
     }
 
-    public function perform(array $data)
+    public function perform()
     {
-        $this->commandInterface->perform($data);
+        $this->commandInterface->perform();
     }
 }

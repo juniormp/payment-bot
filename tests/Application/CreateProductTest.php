@@ -1,35 +1,21 @@
 <?php
 
 
-namespace Tests\Infrastucture\Service;
+namespace Tests\Application;
 
 
 use App\Application\CreateProduct;
-use App\Infrastructure\Service\CommandStrategy;
-use App\Infrastructure\Service\CommandContext;
-use Mockery;
 use Tests\TestCase;
 
-class CommandStrategyTest extends TestCase
+class CreateProductTest extends TestCase
 {
-    public function test_should_redirect_to_create_product()
+    public function test_fuu()
     {
         $data = $this->response();
-        $commandContext = Mockery::spy(CommandContext::class);
-        $command = new CommandStrategy($commandContext);
-        $createProduct = $this->createMock(CreateProduct::class);
-        app()->bind(CreateProduct::class, function() use($createProduct){
-            return $createProduct;
-        });
+        $createProduct = new CreateProduct($data);
 
-
-        $commandContext->shouldReceive('setStrategy')->with($createProduct)->once();
-
-        $commandContext->shouldReceive('perform')->with($data)->once();
-
-        $command->handle($data);
+        $createProduct->perform();
     }
-
 
     public function response(){
         return array (

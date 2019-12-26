@@ -14,7 +14,7 @@ class TelegramService
     private $botUserName;
     private $commandStrategy;
 
-    public function __construct(Command $commandStrategy)
+    public function __construct(CommandStrategy $commandStrategy)
     {
         $this->botApiKey = ENV('TELEGRAM_BOT_TOKEN');
         $this->botUserName = ENV('TELEGRAM_BOT_USERNAME');
@@ -34,7 +34,7 @@ class TelegramService
     {
         try {
             $response = $telegram->handle();
-            //$this->commandStrategy->handle($response);
+            $this->commandStrategy->handle((array)$response);
         } catch (TelegramException $e) {
             throw new Exception($e->getMessage());
         }
