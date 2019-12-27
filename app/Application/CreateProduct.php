@@ -13,18 +13,18 @@ class CreateProduct implements CommandInterface
 {
     private $createProductDTO;
 
-    public function __construct(array $data)
+    public function __construct()
     {
-        $this->createProductDTO = new CreateProductDTO($data);
+        //$this->createProductDTO = new CreateProductDTO($data);
     }
 
-    public function perform()
+    public function perform(array $data)
     {
         // validator que lança exception para o telegram
         // salvar no repositorio
         // retorna para o telegram produto salvo
 
-        $this->response($this->createProductDTO);
+      //  $this->response($this->createProductDTO);
     }
 
     private function response(CreateProductDTO $createProductDTO){

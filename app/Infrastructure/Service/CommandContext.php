@@ -15,8 +15,8 @@ class CommandContext implements CommandInterface
         $this->commandInterface = $commandInterface;
     }
 
-    public function perform()
+    public function perform(array $data)
     {
-        $this->commandInterface->perform();
+        $this->commandInterface->perform($data);
     }
 }
