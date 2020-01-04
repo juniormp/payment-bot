@@ -20,9 +20,8 @@ class HelpCommand
             "Se você é novo por aqui [leia nosso manual](http://www.google.com/)." .
             "\nSempre que precisar de ajuda digite o comando /ajuda" .
             "\n\nComo eu posso te ajudar hoje?".
-            "\n\n/configurarpagamento configurar método de pagamento.".
-            "\n/criarproduto criar um produto.".
-            "\n/venderproduto vender um produto".
+            "\n\n/produto criar um produto, editar e publicar.".
+            "\n/configurarpagamento configurar método de pagamento.".
             "\n/contato entre em contato";
 
         Request::sendSticker([
