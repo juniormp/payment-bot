@@ -24,9 +24,15 @@ class BaseRepositoryTest extends TestCase
         $this->assertDatabaseHas('products', [
             'id' => $products[0]->id,
             'name' => $products[0]->name,
+            'amount' => $products[0]->amount,
+            'quantity' => $products[0]->quantity,
+            'url' => $products[0]->url,
 
             'id' => $products[1]->id,
-            'name' => $products[1]->name
+            'name' => $products[1]->name,
+            'amount' => $products[1]->amount,
+            'quantity' => $products[1]->quantity,
+            'url' => $products[1]->url,
        ]);
     }
 
@@ -39,7 +45,10 @@ class BaseRepositoryTest extends TestCase
 
         $this->assertDatabaseHas('products', [
             'id' => $response->id,
-            'name' => $response->name
+            'name' => $response->name,
+            'amount' => $response->amount,
+            'quantity' => $response->quantity,
+            'url' => $response->url,
         ]);
     }
 
@@ -48,11 +57,17 @@ class BaseRepositoryTest extends TestCase
         $repository = new ProductRepository();
         $product = new Product();
         $product->name = 'Nike';
+        $product->amount = 100.00;
+        $product->quantity = 5;
+        $product->url = 'https://lorempixel.com/250/250/cats/?99342';
 
         $repository->save($product);
 
         $this->assertDatabaseHas('products', [
-            'name' => $product->name
+            'name' => $product->name,
+            'amount' => $product->amount,
+            'quantity' => $product->quantity,
+            'url' => $product->url
         ]);
     }
 
@@ -65,7 +80,10 @@ class BaseRepositoryTest extends TestCase
 
         $this->assertDatabaseMissing('products', [
             'id' => $product->id,
-            'name' => $product->name
+            'name' => $product->name,
+            'amount' => $product->amount,
+            'quantity' => $product->quantity,
+            'url' => $product->url
         ]);
     }
 }
