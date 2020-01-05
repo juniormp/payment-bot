@@ -55,11 +55,14 @@ class BaseRepositoryTest extends TestCase
     public function test_save_data_into_database()
     {
         $repository = new ProductRepository();
-        $product = new Product();
-        $product->name = 'Nike';
-        $product->amount = 100.00;
-        $product->quantity = 5;
-        $product->url = 'https://lorempixel.com/250/250/cats/?99342';
+        $attributes = [
+            'name' => 'Nike',
+            'amount' => 100.00,
+            'quantity' => 5,
+            'foo' => 22,
+            'url' => 'https://lorempixel.com/250/250/cats/?99342'
+        ];
+        $product = new Product($attributes);
 
         $repository->save($product);
 
