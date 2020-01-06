@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\Application;
+namespace App\Application\UseCase;
 
 
 use App\Infrastructure\Service\TelegramService;

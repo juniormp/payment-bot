@@ -3,7 +3,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Application\HandleRequest;
+use App\Application\UseCase\HandleRequest;
 use Illuminate\Routing\Controller;
 
 class TelegramController extends Controller
