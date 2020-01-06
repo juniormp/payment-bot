@@ -6,7 +6,7 @@ namespace App\Application\UseCase;
 
 use App\Infrastructure\Service\TelegramService;
 
-class HandleRequest
+class HandleWebhook
 {
     private $telegramService;
 
