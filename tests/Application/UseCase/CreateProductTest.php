@@ -34,7 +34,6 @@ class CreateProductTest extends TestCase
 
     public function test_should_throw_exception_if_something_went_wrong()
     {
-        $this->markTestSkipped();
         $productRepository = Mockery::mock(ProductRepository::class);
         $createProduct = new CreateProduct($productRepository);
         $attributes = ['name' => 'nike'];
@@ -42,11 +41,10 @@ class CreateProductTest extends TestCase
         $this->app->bind(Product::class, function () use ($product) {
             return $product;
         });
-        $productRepository->shouldReceive('save')
-        ->andThrow(new Exception());
+
+        $productRepository->shouldReceive('save')->andThrow(new Exception());
+        $this->expectException(Exception::class);
 
         $createProduct->perform($attributes);
-
-        $this->expectException(Exception::class);
     }
 }

@@ -30,7 +30,7 @@ class CreateProduct
         } catch (Exception $exception) {
             DB::rollBack();
 
-            throw $exception;
+            throw new Exception($exception->getMessage());
         }
     }
 }

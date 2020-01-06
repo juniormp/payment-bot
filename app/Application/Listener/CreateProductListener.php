@@ -13,6 +13,7 @@ class CreateProductListener
 
     public function handle(MessageReceived $messageReceived)
     {
+        //criar validaçao para saber se é  comando certo que vai cair aqui
         $this->messageReceived = $messageReceived;
     }
 }
