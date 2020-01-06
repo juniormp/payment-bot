@@ -4,6 +4,7 @@
 namespace App\Infrastructure\Service;
 
 
+use App\Application\Event\MessageReceived;
 use Exception;
 use Longman\TelegramBot\Exception\TelegramException;
 use Longman\TelegramBot\Telegram;
@@ -12,13 +13,11 @@ class TelegramService
 {
     private $botApiKey;
     private $botUserName;
-    private $commandStrategy;
 
-    public function __construct(CommandStrategy $commandStrategy)
+    public function __construct()
     {
         $this->botApiKey = ENV('TELEGRAM_BOT_TOKEN');
         $this->botUserName = ENV('TELEGRAM_BOT_USERNAME');
-        $this->commandStrategy = $commandStrategy;
     }
 
     public function getTelegram(): Telegram
@@ -34,7 +33,7 @@ class TelegramService
     {
         try {
             $response = $telegram->handle();
-            $this->commandStrategy->handle((array)$response);
+            event(new MessageReceived((array)$response));
         } catch (TelegramException $e) {
             throw new Exception($e->getMessage());
         }
