@@ -8,10 +8,10 @@ class CommandHelper
 {
     const CREATE_PRODUCT = '/novoproduto';
 
-    public function validate($data, $command): array
+    public function validate($event, $command): array
     {
-        if($this->commandExist($data)){
-            $action = explode(" ", $data['message']['text']);
+        if($this->commandExist($event)){
+            $action = explode(" ", $event->data['message']['text']);
 
             if($action[0] == $command){
                 return $action;
@@ -21,11 +21,11 @@ class CommandHelper
         }
     }
 
-    private function commandExist($data){
-        $message = array_key_exists('message', $data);
+    private function commandExist($event){
+        $message = array_key_exists('message', $event->data);
 
         if ($message) {
-            $text = array_key_exists('text', $data['message']);
+            $text = array_key_exists('text', $event->data['message']);
         } else {
             $text = false;
         }
