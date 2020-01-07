@@ -4,6 +4,7 @@
 namespace Tests\Infrastucture\Service;
 
 
+use App\Application\Event\MessageReceived;
 use App\Infrastructure\Service\CommandHelper;
 use Tests\TestCase;
 
@@ -11,7 +12,7 @@ class CommandHelperTest extends TestCase
 {
     public function test_return_validated_command_data()
     {
-        $data = $this->data();
+        $messageReceived = new MessageReceived($this->data());
         $commandHelper = new CommandHelper();
         $expected = array(
             0 => "/novoproduto",
@@ -21,17 +22,17 @@ class CommandHelperTest extends TestCase
             4 => "https://i.ibb.co/gvBWCz7/rosa-flamingo.jpg"
         );
 
-        $response = $commandHelper->validate($data, CommandHelper::CREATE_PRODUCT);
+        $response = $commandHelper->validate($messageReceived, CommandHelper::CREATE_PRODUCT);
 
         $this->assertEquals($expected, $response);
     }
 
     public function test_return_empty_command_data()
     {
-        $data = $this->data();
+        $messageReceived = new MessageReceived($this->data());
         $commandHelper = new CommandHelper();
 
-        $response = $commandHelper->validate($data, '/fake-command');
+        $response = $commandHelper->validate($messageReceived, '/fake-command');
 
         $this->assertEquals([], $response);
     }

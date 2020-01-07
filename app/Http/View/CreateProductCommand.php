@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\Application\Command;
+namespace App\Http\View;
 
 use Longman\TelegramBot\Request;
 
