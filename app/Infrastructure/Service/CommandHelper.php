@@ -8,7 +8,7 @@ class CommandHelper
 {
     const CREATE_PRODUCT = '/novoproduto';
 
-    public function validate($event, $command): array
+    public function validate($event, $command)
     {
         if($this->commandExist($event)){
             $action = explode(" ", $event->data['message']['text']);
