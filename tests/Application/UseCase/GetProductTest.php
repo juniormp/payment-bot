@@ -13,7 +13,7 @@ use Tests\TestCase;
 
 class GetProductTest extends TestCase
 {
-    public function test_should_list_all_products(){
+    public function test_should_get_product_by_id(){
         $productRepository = Mockery::mock(ProductRepository::class);
         $getProduct = new GetProduct($productRepository);
         $id = 1;
