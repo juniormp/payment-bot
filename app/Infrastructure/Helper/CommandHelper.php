@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\Infrastructure\Service;
+namespace App\Infrastructure\Helper;
 
 
 class CommandHelper

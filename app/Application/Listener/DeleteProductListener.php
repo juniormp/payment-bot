@@ -8,7 +8,7 @@ use App\Application\Event\MessageReceived;
 
 use App\Application\UseCase\DeleteProduct;
 use App\Application\UseCase\GetProduct;
-use App\Infrastructure\Service\CommandHelper;
+use App\Infrastructure\Helper\CommandHelper;
 
 class DeleteProductListener
 {

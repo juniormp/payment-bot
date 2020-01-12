@@ -9,7 +9,7 @@ use App\Application\Listener\DeleteProductListener;
 use App\Application\UseCase\DeleteProduct;
 use App\Application\UseCase\GetProduct;
 use App\Domain\Product;
-use App\Infrastructure\Service\CommandHelper;
+use App\Infrastructure\Helper\CommandHelper;
 use Mockery;
 use Tests\TestCase;
 

@@ -7,7 +7,7 @@ namespace Tests\Application\Listener;
 use App\Application\Event\MessageReceived;
 use App\Application\Listener\CreateProductListener;
 use App\Application\UseCase\CreateProduct;
-use App\Infrastructure\Service\CommandHelper;
+use App\Infrastructure\Helper\CommandHelper;
 use Mockery;
 use Tests\TestCase;
 

@@ -6,7 +6,7 @@ namespace App\Application\Listener;
 
 use App\Application\Event\MessageReceived;
 use App\Application\UseCase\CreateProduct;
-use App\Infrastructure\Service\CommandHelper;
+use App\Infrastructure\Helper\CommandHelper;
 
 class CreateProductListener
 {
