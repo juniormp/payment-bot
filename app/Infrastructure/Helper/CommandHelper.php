@@ -8,6 +8,7 @@ class CommandHelper
 {
     const CREATE_PRODUCT = '/novoproduto';
     const DELETE_PRODUCT = '/excluirproduto';
+    const LIST_PRODUCTS = '/listarprodutos';
 
     public function validate($event, $command)
     {

@@ -17,25 +17,58 @@ class ListProductIntegrationTest  extends  TestCase
     public function test_should_list_all_products()
     {
         $products = factory(Product::class, 2)->create();
-
         $productRepository = new ProductRepository();
         $listProduct = new ListProduct($productRepository);
 
-        $listProduct->perform();
+        $response = $listProduct->perform();
 
-        $this->assertCount(2, $products);
-        $this->assertDatabaseHas('products',[
-            'id'                => $products[0]->id,
-            'name'              => $products[0]->name,
-            'quantity'          => $products[0]->quantity,
-            'amount'            => $products[0]->amount,
-            'url'               => $products[0]->url,
+        $this->assertCount(2, $response);
+        $this->assertEquals($products[0]->id, $response[0]->id);
+        $this->assertEquals($products[1]->id, $response[1]->id);
+    }
 
-            'id'                => $products[1]->id,
-            'name'              => $products[1]->name,
-            'quantity'          => $products[1]->quantity,
-            'amount'            => $products[1]->amount,
-            'url'               => $products[1]->url
-        ]);
+    public function response()
+    {
+        return array(
+            'update_id' => 919483822,
+            'message' =>
+                array(
+                    'message_id' => 1441,
+                    'from' =>
+                        array(
+                            'id' => 462914579,
+                            'is_bot' => false,
+                            'first_name' => 'Maurício',
+                            'last_name' => 'Junior',
+                            'username' => 'juniormp',
+                            'language_code' => 'en',
+                        ),
+                    'chat' =>
+                        array(
+                            'id' => 462914579,
+                            'first_name' => 'Maurício',
+                            'last_name' => 'Junior',
+                            'username' => 'juniormp',
+                            'type' => 'private',
+                        ),
+                    'date' => 1578275063,
+                    'text' => '/listarprodutos',
+                    'entities' =>
+                        array(
+                            0 =>
+                                array(
+                                    'offset' => 0,
+                                    'length' => 12,
+                                    'type' => 'bot_command',
+                                ),
+                            1 =>
+                                array(
+                                    'offset' => 39,
+                                    'length' => 42,
+                                    'type' => 'url',
+                                ),
+                        ),
+                ),
+        );
     }
 }
