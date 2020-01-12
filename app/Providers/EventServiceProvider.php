@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Application\Event\MessageReceived;
 use App\Application\Listener\CreateProductListener;
+use App\Application\Listener\DeleteProductListener;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
@@ -21,6 +22,7 @@ class EventServiceProvider extends ServiceProvider
         ],
         MessageReceived::class => [
             CreateProductListener::class,
+            DeleteProductListener::class,
         ],
     ];
 

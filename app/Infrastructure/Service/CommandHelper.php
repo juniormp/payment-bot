@@ -7,6 +7,7 @@ namespace App\Infrastructure\Service;
 class CommandHelper
 {
     const CREATE_PRODUCT = '/novoproduto';
+    const DELETE_PRODUCT = '/excluirproduto';
 
     public function validate($event, $command)
     {
